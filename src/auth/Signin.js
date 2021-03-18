@@ -29,8 +29,8 @@ const SubmitButton = styled(Button)`
 
 const Signin = ({history}) => {
   const [values, setValues] = useState({
-    email:'dmbrusky@gmail.com',
-    password: '12345678',
+    email:'',
+    password: '',
     buttonText: 'Submit'
   })
 

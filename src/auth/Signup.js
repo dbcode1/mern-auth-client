@@ -23,8 +23,8 @@ const SubmitButton = styled(Button)`
 const Signup = () => {
   const [values, setValues] = useState({
     name: 'Dan',
-    email:'dmbrusky@gmail.com',
-    password: 'rrrrr',
+    email:'',
+    password: '',
     buttonText: 'Submit'
   })
 
