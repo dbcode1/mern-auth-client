@@ -1,0 +1,16 @@
+// add artist name to formatting
+// match searchterm to artist name....see if its too restrictive
+  - if contains "Vincent van Gogh"
+
+
+//styling
+nav
+cards , card layout(gallery/vertical)
+collections
+
+jwt signing out
+
+searchTerm at top once you search
+
+
+//  card object
