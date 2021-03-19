@@ -40,7 +40,7 @@ const Signup = () => {
     setValues({...values, buttonText: 'Submitting'})
     axios({
       method: 'Post',
-      url: 'http://localhost:8000/api/signup',
+      url: `${process.env.REACT_APP_API}/signup`,
       data: {name, email, password}
     })
     .then(response => {
