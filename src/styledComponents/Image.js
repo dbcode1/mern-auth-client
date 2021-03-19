@@ -4,5 +4,5 @@ export default styled.img`
   display: block;
   width: 100%;
   height: auto;
-  
+  cursor: pointer;
 `;

@@ -18,6 +18,12 @@ import { WaveTopBottomLoading } from 'react-loadingg'
 const Container = () => <WaveTopBottomLoading color="#03cffc"/>;
 const { inRange, _ } = require('lodash');
 
+const breakpointColumnsObj = {
+  default: 4,
+  1100: 3,
+  700: 2,
+  500: 1
+};
 
 const Trash = styled(Delete)`
   color: black;
@@ -30,17 +36,9 @@ const Trash = styled(Delete)`
     color: cyan;
   }
 `
-
 const SelectedImage = styled.img`
-  width: auto;;
-  max-height: 600px;
-  display: block;
-  margin: 0 auto;
-  padding-bottom: 20px;
-`
-
-const Collapse = styled(CloseCircle)`
-  width: 30px;
+  width: 100%;
+  cursor: pointer;
 `
 
 const CollectionCard = styled(DataCard)`
@@ -49,7 +47,7 @@ const CollectionCard = styled(DataCard)`
   #inline-wrap {
    padding-bottom: 10px;
    max-width: 100%;
-   width: 100%;
+   width: 100%; //
   }
   button { 
     border: none;
@@ -190,7 +188,7 @@ const Collections = (props) => {
                     <Container key={Date.now()} width={500} height={500} color="#03cffc" />
                   }
                   <Masonry
-                    breakpointCols={4}
+                    breakpointCols={breakpointColumnsObj}
                     className="my-masonry-grid"
                     columnClassName="my-masonry-grid_column"
                   >
@@ -200,12 +198,13 @@ const Collections = (props) => {
                           <ReactModal 
                             isOpen={values.expanded}
                             className="Modal"
+                            ariaHideApp={false}
                             overlayClassName="Overlay"
                           >
-                            <Collapse onClick={(e) => collapse(e)}/>
-                            <SelectedImage id="selected-image" src={values.selectedImg}/>
+                            {/* <Collapse onClick={(e) => collapse(e)}/> */}
+                            <SelectedImage id="selected-image" onClick={expandCard} src={values.selectedImg}/>
                           </ReactModal>
-                          <Card key={i} values={values} item={item} >
+                          <Card key={i} values={values} item={item} expandCard={expandCard} >
                           </Card>
                         </Fragment>
                       )

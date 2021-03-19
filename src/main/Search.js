@@ -18,6 +18,7 @@ const Search = ({history, match }) => {
     artData: [],
     loading: true,
     searchTerm: ''
+
   })
 
   const [titles, setTitles] = useState('')
@@ -28,7 +29,6 @@ const Search = ({history, match }) => {
       setValues({...values, loading: false})
     }, 3000)
     setShow(show => !show)
-    
   }, [])
 
   const token = getCookie('token')

@@ -4,6 +4,7 @@ import { WaveTopBottomLoading } from 'react-loadingg';
 import styled from 'styled-components';
 import Landing from './styledComponents/Landing'
 import DataCard from './styledComponents/DataCard'
+import ReactModal from 'react-modal'
 import Fade from "./Fade";
 import './index.css'
 const Container = () => <WaveTopBottomLoading />;
@@ -27,7 +28,6 @@ function App({match}) {
     setValues({...values, loading: false});
     setShow(show => !show)
   }, [])
-
  
   return (
     <>

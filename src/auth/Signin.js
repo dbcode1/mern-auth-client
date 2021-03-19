@@ -43,6 +43,9 @@ const Signin = ({history}) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     setValues({...values, buttonText: 'Submitting'})
+
+    console.log(`${process.env.REACT_APP_API}`)
+    
     axios({
       method: 'Post', 
       url: `${process.env.REACT_APP_API}/signin`,

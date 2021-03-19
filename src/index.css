@@ -62,22 +62,27 @@ html {
 h1 { font-weight: 400;}
 
 .Modal {
-  background-color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 30px;
-  width: 80%;
-  max-width: 800px;
-  margin: 5% auto;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-  outline: none;
+  position:fixed;
+        top:50%;
+        left:50%;
+        z-index: 2000;
+        transform:translate(-50%,-50%);
+        box-sizing:border-box;
+        width:600px;
+       border: solid 2px rgb(202, 211, 221);
+        background-color: white;
+        border-radius: 8px;
+        padding: 40px;
+        
 }
 
-.Overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: whitesmoke;
+
+.showNav {
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+
+.hideNav {
+  opacity: 0;
+  
 }
