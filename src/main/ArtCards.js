@@ -10,9 +10,13 @@ const Container = () => <WaveTopBottomLoading color="#03cffc"/>;
 const breakpointColumnsObj = {
   default: 4,
   1100: 3,
-  700: 2,
-  500: 1
+  900: 2,
+  600: 1
 };
+
+const SearchResults = styled.div`
+  margin-top: 150px;
+  `
 
 const Collapse = styled(CloseCircle)`
   width: 30px;
@@ -45,7 +49,7 @@ const ArtCards = ({data, setValues, titles, values}) => {
       {data.map((item, i) => {
         if(item){
           return (
-            <Fragment>
+          <SearchResults>
               <ReactModal 
                 isOpen={values.expanded}
                 className="Modal"
@@ -55,7 +59,7 @@ const ArtCards = ({data, setValues, titles, values}) => {
               </ReactModal>
               <Card key={i} values={values} titles={titles} item={item} setValues={setValues} expandCard={expandCard} >
               </Card>
-          </Fragment>            
+          </SearchResults>            
             // <Card item={item} titles={titles} values={values} setValues={setValues} />
           )
         }

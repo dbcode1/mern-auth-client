@@ -10,22 +10,9 @@ import 'react-toastify/dist/ReactToastify.min.css'
 import DataForm from './../styledComponents/DataForm';
 import DataField from './../styledComponents/DataField'
 import Button from './../styledComponents/Button'
-
-
-const SigninForm = styled(DataForm)`
-  width: 100%;
-`
-
-const SubmitButton = styled(Button)`
-  border: 2px solid royalblue;
-  border-radius: 6px;
-  color: royalblue;
-  margin: 15px auto 0 auto;
-  &:hover {
-    background-color: white;
-    color: cyan;
-  }
-`
+import { device} from '../styledComponents/responsive'
+import FormWrapper from '../styledComponents/FormWrapper'
+import Submit from '../styledComponents/Submit'
 
 const Signin = ({history}) => {
   const [values, setValues] = useState({
@@ -69,7 +56,7 @@ const Signin = ({history}) => {
   }
 
   const signinForm = () => (
-    <SigninForm>
+    <DataForm>
       <DataField>
         <label >Email</label>
         <input type="text" value={email} onChange={handleChange('email')}></input>
@@ -79,25 +66,20 @@ const Signin = ({history}) => {
         <input type="text" value={password} onChange={handleChange('password')}></input>
       </DataField>
       <DataField>
-        <SubmitButton onClick={handleSubmit}>{buttonText}</SubmitButton>
+        <Submit onClick={handleSubmit}>{buttonText}</Submit>
       </DataField>
       <br></br>
       <Link to='/auth/password/forgot' >Forgot Password</Link>
-    </SigninForm>
+    </DataForm>
   )
 
   return (
   <Layout>
-    <div className="col-md-6 offset-md-3">
-  
+    <FormWrapper>
       <ToastContainer />
-      
       {isAuth() ? <Redirect to='/' /> : null}
-      <h1 className="p-5 text-center">Signin</h1>
       {signinForm()}
-     
-
-    </div>
+    </FormWrapper>
   </Layout>
   )
 }

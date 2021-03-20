@@ -9,17 +9,9 @@ import styled from 'styled-components'
 import Button from './../styledComponents/Button';
 import DataForm from './../styledComponents/DataForm';
 import DataField from './../styledComponents/DataField'
+import FormWrapper from '../styledComponents/FormWrapper'
+import Submit from '../styledComponents/Submit'
 
-const SubmitButton = styled(Button)`
-  border: 2px solid royalblue;
-  border-radius: 6px;
-  color: royalblue;
-  margin: 15px auto 0 auto;
-  &:hover {
-    background-color: white;
-    color: cyan;
-  }
-`
 const Signup = () => {
   const [values, setValues] = useState({
     name: 'Dan',
@@ -55,7 +47,7 @@ const Signup = () => {
   }
 
   const signupForm = () => (
-    <DataForm>
+    <DataForm >
       <DataField >
         <label >Name</label>
         <input  type="text" value={name} onChange={handleChange('name')}></input>
@@ -69,7 +61,7 @@ const Signup = () => {
         <input type="text" value={password} onChange={handleChange('password')}></input>
       </DataField>
       <DataField>
-        <SubmitButton onClick={handleSubmit}>{buttonText}</SubmitButton>
+        <Submit onClick={handleSubmit}>{buttonText}</Submit>
       </DataField>
       <br></br>
         <Link to='/auth/password/forgot'>Forgot Password</Link>
@@ -78,13 +70,12 @@ const Signup = () => {
 
   return (
   <Layout >
-    <div>
+    <FormWrapper>
       <ToastContainer />
       {isAuth() ? <Redirect to='/' /> : null}
-      <h1 className="p-5 text-center">Signup</h1>
       {signupForm()}
       
-    </div>
+    </FormWrapper>
   </Layout>
   )
 }

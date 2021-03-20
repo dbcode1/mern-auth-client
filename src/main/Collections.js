@@ -20,9 +20,9 @@ const { inRange, _ } = require('lodash');
 
 const breakpointColumnsObj = {
   default: 4,
-  1100: 3,
-  700: 2,
-  500: 1
+  1200: 3,
+  900: 2,
+  675: 1
 };
 
 const Trash = styled(Delete)`
@@ -43,7 +43,7 @@ const SelectedImage = styled.img`
 
 const CollectionCard = styled(DataCard)`
   width: 90%;
-  margin: 0 auto 15px auto;
+  margin: 15px auto 15px auto;
   #inline-wrap {
    padding-bottom: 10px;
    max-width: 100%;
@@ -54,6 +54,10 @@ const CollectionCard = styled(DataCard)`
     background: white;
     
   }
+`
+
+const CollectionWrapper = styled.div`
+  margin-top: 125px;
 `
 
 const Collections = (props) => {
@@ -174,9 +178,7 @@ const Collections = (props) => {
 
         <Fade show={show}>
          <ToastContainer />
-         <h1 className="p-5 text-center">{user.name}'s Collections</h1>
-         
-          <Fragment>
+          <CollectionWrapper>
             { values.collections.map(collection => {
               return (
                 <CollectionCard className="collection-card" >
@@ -213,7 +215,7 @@ const Collections = (props) => {
                 </CollectionCard>
               )
             })}
-          </Fragment>
+          </CollectionWrapper>
         </Fade>
       </Layout>
     )

@@ -10,6 +10,8 @@ import Button from './../styledComponents/Button';
 import DataField from './../styledComponents/DataField'
 import DataCard from './../styledComponents/DataCard'
 import Fade from "../Fade";
+import FormWrapper from '../styledComponents/FormWrapper'
+import Submit from '../styledComponents/Submit'
 
 const PrivateForm = styled(DataForm)`
   margin-top: 100px;
@@ -96,7 +98,7 @@ const Private = ({history}) => {
   }
 
   const updateForm = () => (
-    <PrivateForm>
+    <DataForm>
       <p> Profile Update</p>
       <DataField>
         <label>Role</label>
@@ -115,17 +117,19 @@ const Private = ({history}) => {
         <input type="text" value={password} onChange={handleChange('password')}></input>
       </DataField>
       <DataField>
-        <SubmitButton  onClick={handleSubmit}>{buttonText}</SubmitButton>
+        <Submit  onClick={handleSubmit}>{buttonText}</Submit>
       </DataField>
-    </PrivateForm>
+    </DataForm>
   )
 
   return (
   <Layout>
+    <FormWrapper>
     <Fade show={show}>
       <ToastContainer />
       {updateForm()}
     </Fade>
+    </FormWrapper>
   </Layout>
   )
 }

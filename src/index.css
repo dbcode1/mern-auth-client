@@ -35,6 +35,8 @@
 html { 
   overflow-y: scroll; overflow-x: hidden; color: black; }
 
+  body { max-width: 1400px; margin: 0 auto; font-size: 16px; }
+
 /* FONTS */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Oswald:wght@300;500&display=swap');
@@ -47,7 +49,7 @@ html {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
-  margin: 50px 30px 100px 0; /* gutter size offset */
+  margin: 10px 30px 100px 0; /* gutter size offset */
   width: auto;
 }
 .my-masonry-grid_column {
@@ -59,7 +61,8 @@ html {
 .my-masonry-grid_column > div { 
 }
 
-h1 { font-weight: 400;}
+h1 { font-weight: 400; }
+
 
 .Modal {
   position:fixed;

@@ -7,7 +7,6 @@ const Button = styled.button`
 	text-align: center;
 	font-size: 1em;
 	text-decoration: none;
-	font-size: em;
 	letter-spacing: 1.5px;
 	transition-property: background-color, color, border;
 	transition: 0.5s;

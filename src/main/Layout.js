@@ -8,16 +8,12 @@ import { device} from '../styledComponents/responsive'
 
 const OpenClose = styled.span`
   position: fixed;
-  @media ${device.tablet} {
-    bottom: 14px;
-    right: 8px;
-  }
-   bottom: 80px;
-   right: 6px;
+  bottom: 88px;
+  right: 8px;
   z-index: 2000;
-  height: 40px;
-  width: 40px;
+  padding: 2px;
   border-radius: 150px;
+  background-color: #ccf5ff;
 `
 const Arrows = styled(SelectArrows) `
   width: 30px;
@@ -36,7 +32,7 @@ const NavButton = styled.li`
   list-style: none;
   transition: 0.5s;
   padding: 24px 0 0 0;
-  width: 25%;
+  width: 33.3%;
   transition-property: color, background-color;
   @media ${device.tablet} {
     width: 33.3%;
@@ -45,7 +41,7 @@ const NavButton = styled.li`
   &:hover { background-color: gainsboro; color: blue }
   span {
     display: inline-block;
-    font-size: 1.18em;
+    font-size: 1.14em;
   
     
     @media ${device.laptop} {
@@ -105,10 +101,10 @@ const isActive = path =>{
              Home</Link>
           </NavButton>
           <NavButton>
-            <Link to="/signin"  style={isActive('/signin')}>Signin</Link>
+            <Link to="/signin"  style={isActive('/signin')}>Log in</Link>
           </NavButton>
           <NavButton>
-            <Link to="/signup"  style={isActive('/signup')}>Signup</Link>
+            <Link to="/signup"  style={isActive('/signup')}>Sign up</Link>
           </NavButton>
         </Fragment>
       )}

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { device} from '../styledComponents/responsive'
+
 export default styled.div`
 	border: none;
 	color: black;
@@ -7,17 +9,23 @@ export default styled.div`
 	label {
 		color: grey;
 		display: block;
-		padding: 0.25em;
 	}
-	padding: 0.4em;
-	margin-bottom: 0.75em;
+	padding: 4px 0;
+	
 	text-align: center;
 	input {
-		height: 40px;
-		width: 250px;
+		text-align: center;
+		height: 35px;
+		width: 200px;
 		border: none;
 		border: 2px solid lightgrey;
 		border-radius: 6px;
 		padding: 10px;
+		@media ${device.tablet}{
+			width: 250px;
+		}
 	}
 `;
+
+
+  

@@ -10,15 +10,27 @@ import './index.css'
 const Container = () => <WaveTopBottomLoading />;
 
 
-const LandingCard = styled(DataCard)`
-  width: 65%;
-  margin: 0 auto;
- 
+const LandingCard = styled.div`
+  padding: 1em;
+  background-color: white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);  
+  margin: 0.25em 0;
+  border-radius: 6px;
+  width: 80%;
+  max-width: 800px;
+  @media (min-width: 650px){
+    padding: 1.75em;
+  }
+  @media (min-width: 1000px){
+    padding: 2em;
+  }
   img {
-    max-height: 100%;
-    max-width: 100%;
+    width: 100%;
+    height: auto;
+  
   }
 `
+
 function App({match}) {
  
   const [show, setShow] = useState(false);
@@ -36,11 +48,10 @@ function App({match}) {
         <Layout>
           <Landing>
               <h1>The Collector</h1>
-              
-            <LandingCard>
-              <img className="hero" src="https://openaccess-cdn.clevelandart.org/1960.81/1960.81_web.jpg" ></img>
-            </LandingCard>
-            <h3>Collect art from international museums.</h3>
+              <LandingCard>
+                <img className="hero" src="https://openaccess-cdn.clevelandart.org/1960.81/1960.81_web.jpg" ></img>
+              </LandingCard>
+              <h3>Collect art from international museums.</h3>
           </Landing>
         </Layout>
       ) : (

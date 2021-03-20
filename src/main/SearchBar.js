@@ -5,12 +5,12 @@ import { SelectArrows } from "@styled-icons/entypo/SelectArrows"
 
 const OpenClose = styled.span`
   position: fixed;
-  top: 16px;
+  top: 98px;
   right: 8px;
   z-index: 2000;
-  height: 40px;
-  width: 40px;
+  padding: 2px;
   border-radius: 150px;
+  background-color: #ccf5ff;
 `
 const Arrows = styled(SelectArrows) `
   width: 30px;
@@ -68,7 +68,7 @@ const SearchBar = (props) => {
         </Arrows>
       </OpenClose>
       <SearchForm onSubmit={props.submit} className={showNav ? 'showNav' : 'hideNav'}>
-        <SearchInput type="text" placeholder={props.inputTitle} name="search"  onChange={onFieldChange}></SearchInput>
+        <SearchInput  type="text" placeholder={props.inputTitle} name="search"  onChange={onFieldChange}></SearchInput>
         <Button type="submit" value="Submit">{props.button}</Button>
       </SearchForm>
     </Fragment>
