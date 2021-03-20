@@ -42,30 +42,30 @@ const ArtCards = ({data, setValues, titles, values}) => {
 
   return (
     <Fragment>
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column">
-      {data.map((item, i) => {
-        if(item){
-          return (
-          <SearchResults>
-              <ReactModal 
-                isOpen={values.expanded}
-                className="Modal"
-                overlayClassName="Overlay"
-              >
-                <SelectedImage id="selected-image" onClick={expandCard} src={values.selectedImg}/>
-              </ReactModal>
-              <Card key={i} values={values} titles={titles} item={item} setValues={setValues} expandCard={expandCard} >
-              </Card>
-          </SearchResults>            
-            // <Card item={item} titles={titles} values={values} setValues={setValues} />
-          )
-        }
-      })
-    }
-      </Masonry>
+      <SearchResults>
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column">
+          {data.map((item, i) => {
+            if(item){
+              return (
+                <Fragment>
+                  <ReactModal 
+                    isOpen={values.expanded}
+                    className="Modal"
+                    overlayClassName="Overlay"
+                  >
+                    <SelectedImage id="selected-image" onClick={expandCard} src={values.selectedImg}/>
+                  </ReactModal>
+                  <Card key={i} values={values} titles={titles} item={item} setValues={setValues} expandCard={expandCard} >
+                  </Card> 
+                </Fragment>          
+              )
+            }
+          })}
+        </Masonry>
+      </SearchResults>
     </Fragment>
   )
 }
