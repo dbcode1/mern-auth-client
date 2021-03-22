@@ -1,4 +1,4 @@
-import React, {useState, Fragment} from 'react'
+import React, {useState, Fragment, useEffect} from 'react'
 import styled from 'styled-components'
 import Button from '../styledComponents/Button'
 import { SelectArrows } from "@styled-icons/entypo/SelectArrows"
@@ -32,7 +32,7 @@ display: flex;
 margin: 0;
 padding: 0;
 width: 100%;
-height: 10vh;
+height: 75px;
 position fixed;
 top:0;
 right: 0;
@@ -50,7 +50,11 @@ text-align: center;
 }
 `
 
-const SearchBar = (props) => {
+window.onload=function(){
+  document.getElementById("input").click();
+};
+
+const SearchBar = ({change, submit, inputTitle, button}) => {
   const [showNav, setShowNav] = useState(true)
 
   const hideNav = () => {
@@ -59,7 +63,8 @@ const SearchBar = (props) => {
 
   const onFieldChange = (e) => {
     const term = e.target.value;
-    props.change(term)
+    console.log('auto', e.target.value)
+    change(term)
   }
   return (
     <Fragment>
@@ -67,9 +72,9 @@ const SearchBar = (props) => {
         <Arrows>
         </Arrows>
       </OpenClose>
-      <SearchForm onSubmit={props.submit} className={showNav ? 'showNav' : 'hideNav'}>
-        <SearchInput  type="text" placeholder={props.inputTitle} name="search"  onChange={onFieldChange}></SearchInput>
-        <Button type="submit" value="Submit">{props.button}</Button>
+      <SearchForm autocomplete="off" onSubmit={submit} className={showNav ? 'showNav' : 'hideNav'}>
+        <SearchInput id="input" type="text" placeholder={inputTitle} name="search"  onChange={onFieldChange}></SearchInput>
+        <Button type="submit" value="Submit">{button}</Button>
       </SearchForm>
     </Fragment>
   )

@@ -10,9 +10,6 @@ const DataCard = styled.div`
   @media(min-width: 700px) {
     padding: 15px;
   }
-  @media(min-width: 950px) {
-    
-  }
   select {
     -webkit-appearance: none;
     -moz-appearance: none;

@@ -14,9 +14,7 @@ const Card = ({titles, values, item, setValues, expandCard}) => {
     let location = useLocation()
     const user = isAuth()._id
     const token = getCookie('token')
-    const onChange =(e) => {
-      setValues({})
-    }
+   
     const addToCollection = async (e) => {
       e.preventDefault()
       // get selected card index
@@ -51,9 +49,9 @@ const Card = ({titles, values, item, setValues, expandCard}) => {
   return (
     <Fragment>
       <DataCard key={Math.random()} >
-         {values.loading &&
+         {/* {values.loading &&
           <Container width={500} height={500} key={Date.now()} color="#03cffc" />
-        } 
+        }  */}
         <h5>{item.title}</h5>
         <Image id="card-image" loading="lazy" src={item.img}  onClick={expandCard} className="item-img"/>
         <div id="inline-wrap">

@@ -50,7 +50,7 @@ const ArtCards = ({data, setValues, titles, values}) => {
           {data.map((item, i) => {
             if(item){
               return (
-                <Fragment>
+                <Fragment key={Math.random()}>
                   <ReactModal 
                     isOpen={values.expanded}
                     className="Modal"
