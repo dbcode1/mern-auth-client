@@ -16,7 +16,7 @@ const Search = ({history, match }) => {
     buttonText: 'Submit',
     token: '',
     artData: [],
-    loading: true,
+    loading: false,
     searchTerm: '',
     expanded: false
   })
@@ -25,9 +25,6 @@ const Search = ({history, match }) => {
   const [show, setShow] = useState(false);
   
   useEffect(() => {
-    setTimeout(() => {
-      setValues({...values, loading: false})
-    }, 3000)
     setShow(show => !show)
     
   }, [])
@@ -84,6 +81,7 @@ const Search = ({history, match }) => {
       setValues({...values, artData: callSearchArt.data, loading: false})
     } catch(error) {
       console.log('GET ART ERROR', error)
+      setValues({...values, loading: false})
       toast.error(error.message)
     }
   }

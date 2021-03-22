@@ -33,6 +33,11 @@ const OptionsWrapper = styled.div`
     background-color: royalblue;
     color: white;
   }
+  a {
+    display: block;
+    padding: 5px 60px;
+    font-size: 14px;
+  }
 `
 
 
@@ -83,7 +88,8 @@ const Card = ({
   const cardDelete = async (e) => {
     e.preventDefault()
     const title = e.target.parentNode.parentNode.childNodes[0].innerHTML
-    console.log(title)
+    const error = e.target.parentNode.parentNode.childNodes
+    console.log(error)
     await axios({
       method: 'DELETE',
       url: `${process.env.REACT_APP_API}/cards/delete`,
@@ -98,7 +104,7 @@ const Card = ({
     }).then(res => {
       setValues({collections: res.data})
       toast.info(`Deleted from ${containerTitle} collection`)
-      //refresh()
+      refresh()
     }).catch(error => {
       console.log('DELETE CARD ERROR', error)
     })
@@ -129,8 +135,10 @@ const Card = ({
           </select>
         }
         {location.pathname === "/collections" && 
-          <OptionsWrapper onClick={(e) => cardDelete(e)}>
-            <Trash ></Trash>
+          <OptionsWrapper>
+            <a onClick={(e) => cardDelete(e)}>
+              <Trash />
+            </a>
           </OptionsWrapper>
         }
       </DataCard>
