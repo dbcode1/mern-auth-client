@@ -5,7 +5,7 @@ import { SelectArrows } from "@styled-icons/entypo/SelectArrows"
 
 const OpenClose = styled.span`
   position: fixed;
-  top: 98px;
+  top: 86px;
   right: 8px;
   z-index: 2000;
   padding: 2px;
@@ -49,14 +49,12 @@ text-align: center;
     outline: none;
 }
 `
-
-window.onload=function(){
-  document.getElementById("input").click();
-};
-
 const SearchBar = ({change, submit, inputTitle, button}) => {
   const [showNav, setShowNav] = useState(true)
 
+  useEffect(() => {
+    document.getElementById("input").click()
+  }, [])
   const hideNav = () => {
     setShowNav(!showNav)
   }

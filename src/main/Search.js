@@ -17,8 +17,8 @@ const Search = ({history, match }) => {
     token: '',
     artData: [],
     loading: true,
-    searchTerm: ''
-
+    searchTerm: '',
+    expanded: false
   })
 
   const [titles, setTitles] = useState('')
@@ -119,7 +119,9 @@ const Search = ({history, match }) => {
         <Container key={Date.now()} width={500} height={500} color="#03cffc" />
       }
       <Fade show={show} className="card">
-        <ArtCards data={values.artData} titles={titles} setValues={setValues} values={values}/>  
+        <ArtCards 
+          data={values.artData} 
+          titles={titles} />  
       </Fade>
     </Layout>
     

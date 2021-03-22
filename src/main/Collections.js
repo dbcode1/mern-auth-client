@@ -121,7 +121,7 @@ const Collections = (props) => {
     })
   }
 
-  const getCollections = async (setter) => {
+  const getCollections = async () => {
     // get user id send with request
     const user = isAuth()._id
     await axios({
@@ -183,7 +183,7 @@ const Collections = (props) => {
               return (
                 <CollectionCard className="collection-card" >
                   <div id="inline-wrap">
-                    <h4>{collection.title}</h4>
+                    <h4 className="collectionTitle">{collection.title}</h4>
                     <button onClick={(e) => deleteCollections(e)}><Trash /></button>
                   </div>
                   {values.loading &&
@@ -206,7 +206,13 @@ const Collections = (props) => {
                             {/* <Collapse onClick={(e) => collapse(e)}/> */}
                             <SelectedImage id="selected-image" onClick={expandCard} src={values.selectedImg}/>
                           </ReactModal>
-                          <Card key={i} values={values} item={item} expandCard={expandCard} >
+                          <Card key={i}
+                           containerTitle={collection.title} 
+                           collections={values.collections} 
+                           setValues={setValues} 
+                           item={item} 
+                           expandCard={expandCard} 
+                           refresh={getCollections} >
                           </Card>
                         </Fragment>
                       )

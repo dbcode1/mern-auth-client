@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useState} from 'react'
 import Card from './Card'
 import { isAuth, getCookie } from '../auth/helpers'
 import Masonry from 'react-masonry-css'
@@ -25,12 +25,20 @@ const SelectedImage = styled.img`
   width: 100%;
   cursor: pointer;
 `
-const ArtCards = ({data, setValues, titles, values}) => {
+const ArtCards = ({data, titles, expanded}) => {
   const user = isAuth()._id
   const token = getCookie('token')
 
+  const [values, setValues] = useState({
+    buttonText: 'Submit',
+    expanded: false,
+    title: '',
+    selectedImg: '',
+    expanded: false
+})
+
   const collapse = (e) => {
-    setValues({...values, expanded: !values.expanded})
+    setValues({ ...values, expanded: expanded})
   }
 
   const expandCard = (e) => {
@@ -42,6 +50,7 @@ const ArtCards = ({data, setValues, titles, values}) => {
 
   return (
     <Fragment>
+      {expanded}
       <SearchResults>
         <Masonry
           breakpointCols={breakpointColumnsObj}
@@ -56,9 +65,15 @@ const ArtCards = ({data, setValues, titles, values}) => {
                     className="Modal"
                     overlayClassName="Overlay"
                   >
+                    
                     <SelectedImage id="selected-image" onClick={expandCard} src={values.selectedImg}/>
                   </ReactModal>
-                  <Card key={i} values={values} titles={titles} item={item} setValues={setValues} expandCard={expandCard} >
+                  <Card 
+                    key={i} 
+                    titles={titles}
+                    item={item} 
+                    setValues={setValues} 
+                    expandCard={expandCard} >
                   </Card> 
                 </Fragment>          
               )
