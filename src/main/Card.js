@@ -6,41 +6,31 @@ import Image from '../styledComponents/Image'
 import styled from 'styled-components'
 import { WaveTopBottomLoading } from 'react-loadingg'
 import {ToastContainer, toast} from 'react-toastify'
-import {Delete} from '@styled-icons/material-outlined/Delete'
 import DataCard from './../styledComponents/DataCard';
+import {Delete} from '@styled-icons/material-outlined/Delete'
 const Container = () => <WaveTopBottomLoading color="#03cffc"/>;
 
+
 const Trash = styled(Delete)`
-  color: grey;
-  width: 25px;
+  color: lightgrey;
+  width: 30px;
   height: auto;
   display: inline-block;
-  padding: 0 0 4px 0 ;
-  transition: color ease 0.75s;
+  padding-right: -5px;
+  transition: color ease 0.5s;
   &:hover { 
-    color: white;
+    color: red;
   }
 `
-const OptionsWrapper = styled.div`
-  text-align: center;
+
+const ButtonWrapper = styled.div`
   width: 100%;
-  height: auto;
-  margin-top: -15px;
-  cursor: pointer;
-  transition: background-color ease 0.75s;
-  border-radius: 6px;
-  &:hover { 
-    background-color: royalblue;
-    color: white;
-  }
-  a {
-    display: block;
-    padding: 5px 60px;
-    font-size: 14px;
+  text-align: right;
+  button {
+    margin:0;
+    padding: 0;
   }
 `
-
-
 
 const Card = ({
   titles, 
@@ -87,9 +77,8 @@ const Card = ({
     
   const cardDelete = async (e) => {
     e.preventDefault()
-    const title = e.target.parentNode.parentNode.childNodes[0].innerHTML
-    const error = e.target.parentNode.parentNode.childNodes
-    console.log(error)
+    const title = e.currentTarget.parentNode.parentNode.title
+    console.log(title)
     await axios({
       method: 'DELETE',
       url: `${process.env.REACT_APP_API}/cards/delete`,
@@ -111,7 +100,7 @@ const Card = ({
   }
   return (
     <Fragment>
-      <DataCard key={Math.random()} containerTitle={item.containerTitle}>
+      <DataCard title={item.title} key={Math.random()} containerTitle={item.containerTitle}>
          {/* {values.loading &&
           <Container width={500} height={500} key={Date.now()} color="#03cffc" />
         }  */}
@@ -135,11 +124,9 @@ const Card = ({
           </select>
         }
         {location.pathname === "/collections" && 
-          <OptionsWrapper>
-            <a onClick={(e) => cardDelete(e)}>
-              <Trash />
-            </a>
-          </OptionsWrapper>
+        <ButtonWrapper>
+          <button onClick={(e) => cardDelete(e)}><Trash /></button>
+        </ButtonWrapper>
         }
       </DataCard>
     </Fragment>     

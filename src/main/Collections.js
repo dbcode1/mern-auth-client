@@ -10,8 +10,8 @@ import jwt from 'jsonwebtoken'
 import Fade from "../Fade";
 import styled from 'styled-components'
 import DataCard from '../styledComponents/DataCard'
+import Button from '../styledComponents/Button'
 import {Delete} from '@styled-icons/material-outlined/Delete'
-import {CloseCircle} from '@styled-icons/ionicons-outline/CloseCircle'
 import ReactModal from 'react-modal'
 import Masonry from 'react-masonry-css'
 import { WaveTopBottomLoading } from 'react-loadingg'
@@ -33,9 +33,10 @@ const Trash = styled(Delete)`
   padding: 0;
   transition: color ease 0.5s;
   &:hover { 
-    color: cyan;
+    color: red;
   }
 `
+
 const SelectedImage = styled.img`
   width: 100%;
   cursor: pointer;
@@ -45,19 +46,17 @@ const CollectionCard = styled(DataCard)`
   width: 90%;
   margin: 15px auto 15px auto;
   #inline-wrap {
-   padding-bottom: 10px;
    max-width: 100%;
-   width: 100%; //
+   width: 100%; 
   }
   button { 
     border: none;
     background: white;
-    
   }
 `
 
 const CollectionWrapper = styled.div`
-  margin-top: 125px;
+  margin: 125px 0 50px 0;
 `
 
 const Collections = (props) => {
@@ -141,7 +140,7 @@ const Collections = (props) => {
   const deleteCollections = (e) => {
     e.preventDefault()
     if(window.confirm("Are you sure you want to permanently erase this collection?")){
-      const title = e.target.parentNode.parentNode.childNodes[0].innerHTML
+      const title = e.currentTarget.parentNode.childNodes[0].innerHTML
       console.log('title', title)
       axios({
         method: 'DELETE',

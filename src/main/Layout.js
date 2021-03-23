@@ -147,7 +147,7 @@ const isActive = path =>{
               onClick={() => signout(() => {
                 history.push('/')
             })}>
-              Signout
+              Sign out
             </span>
           </NavButton>
          

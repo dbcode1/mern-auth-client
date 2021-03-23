@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.min.css'
 
 const Forgot = ({history}) => {
   const [values, setValues] = useState({
-    email:'dmbrusky@gmail.com',
+    email:'',
     buttonText: 'Request Reset Password Link'
   })
 

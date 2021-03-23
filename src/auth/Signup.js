@@ -14,7 +14,7 @@ import Submit from '../styledComponents/Submit'
 
 const Signup = () => {
   const [values, setValues] = useState({
-    name: 'Dan',
+    name: '',
     email:'',
     password: '',
     buttonText: 'Submit'

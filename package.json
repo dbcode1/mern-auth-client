@@ -16,6 +16,7 @@
     "magic-grid": "^3.2.4",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-icons": "^4.2.0",
     "react-loader-spinner": "^4.0.0",
     "react-loadingg": "^1.7.2",
     "react-loadingmask": "^4.0.6",

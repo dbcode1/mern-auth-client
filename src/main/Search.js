@@ -96,7 +96,8 @@ const Search = ({history, match }) => {
     <Layout>
       <ToastContainer
         position="top-center"
-        autoClose={5000}
+        autoClose={3000}
+        delay={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -110,7 +111,7 @@ const Search = ({history, match }) => {
         change={onChangeValue} 
         term={values.searchTerm} 
         submit={onSubmitValue}
-        inputTitle="Enter artist fullname"
+        inputTitle="Enter artist full name"
         button="Search"
       />
       {values.loading &&

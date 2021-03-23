@@ -12,24 +12,24 @@ export default styled.div`
   h1 {
     font-size: 2.5em;
     color: grey;
-    margin-top: -50px;
+    margin-top: -70px;
     font-family: 'PT Sans', sans-serif;
     @media (min-width: 650px){
       font-size: 3.5em;
     }
     @media (min-width: 1000px){
-      font-size: 5em;
+      font-size: 4.5em;
     }
   }
   h3{
     font-size: 1em;
     font-family: 'PT Sans', sans-serif;
-    margin-top: 1em;
+    margin-top: 10px;
     @media (min-width: 650px){
       font-size: 1.35em;
     }
     @media (min-width: 1000px){
-      font-size: 1.75em;
+      font-size: 1.5em;
     }
   }
  

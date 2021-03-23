@@ -37,6 +37,7 @@ const DataCard = styled.div`
       font-size: 18px;
     }
   }
+
   p{ font-size: 12px;}
   h4 { padding-left: 15px;}
   h5 {

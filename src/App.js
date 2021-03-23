@@ -11,18 +11,21 @@ const Container = () => <WaveTopBottomLoading />;
 
 
 const LandingCard = styled.div`
-  padding: 1em;
+  padding: 1.5em;
   background-color: white;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);  
   margin: 0.25em 0;
   border-radius: 6px;
-  width: 80%;
-  max-width: 800px;
+  width: 70%;
+
+  max-width: 700px;
   @media (min-width: 650px){
     padding: 1.75em;
+    width: 60%
   }
-  @media (min-width: 1000px){
+  @media (min-width: 1200px){
     padding: 2em;
+    width: 50%;
   }
   img {
     width: 100%;
@@ -51,7 +54,7 @@ function App({match}) {
               <LandingCard>
                 <img className="hero" src="https://openaccess-cdn.clevelandart.org/1960.81/1960.81_web.jpg" ></img>
               </LandingCard>
-              <h3>Collect art from international museums.</h3>
+              <h3>Search for art from notable museums to add to your collections.</h3>
           </Landing>
         </Layout>
       ) : (
