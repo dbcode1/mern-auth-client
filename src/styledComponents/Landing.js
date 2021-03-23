@@ -8,7 +8,7 @@ export default styled.div`
   flex-direction: column; 
   justify-content: center; 
   align-items: center;
-
+  text-align: center;
   h1 {
     font-size: 2.5em;
     color: grey;
@@ -24,7 +24,8 @@ export default styled.div`
   h3{
     font-size: 1em;
     font-family: 'PT Sans', sans-serif;
-    margin-top: 10px;
+    margin-top: 15px;
+    max-width: 90%;
     @media (min-width: 650px){
       font-size: 1.35em;
     }

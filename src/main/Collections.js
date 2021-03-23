@@ -56,7 +56,7 @@ const CollectionCard = styled(DataCard)`
 `
 
 const CollectionWrapper = styled.div`
-  margin: 125px 0 50px 0;
+  margin: 125px 0 120px;
 `
 
 const Collections = (props) => {

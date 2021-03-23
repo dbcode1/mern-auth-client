@@ -42,8 +42,6 @@ const NavButton = styled.li`
   span {
     display: inline-block;
     font-size: 1.14em;
-  
-    
     @media ${device.laptop} {
       font-size: 1.3em;
       padding-top: 1px;
@@ -54,7 +52,6 @@ const NavButton = styled.li`
     @media ${device.tablet} {
       font-size: 1.26em
     }
- 
   }
   a {
     transition: 0.5s;
@@ -64,14 +61,6 @@ const NavButton = styled.li`
       font-size: 1.35em;
     }
     &:hover {
-      color: white;
-    }
-  }
-  span {
-    color: black;
-    transition: 0.5s;
-    transition-property: color;
-    &:hover { 
       color: white;
     }
   }
@@ -142,15 +131,13 @@ const isActive = path =>{
     
       {isAuth() && (
         <Fragment>
-          <NavButton className="Layout-item">
-            <span 
-              onClick={() => signout(() => {
+          <NavButton>
+            <a onClick={() => signout(() => {
                 history.push('/')
             })}>
               Sign out
-            </span>
+            </a>
           </NavButton>
-         
          </Fragment>
       )}
     </Nav>
